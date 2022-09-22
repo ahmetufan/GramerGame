@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Gramer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deneme">Makale, herhangi bir konuda, bir görüşü, bir düşünceyi savunmak ve kanıtlamak için yazılan yazılara denir. Gazete ve dergilerde yayımlanır. Bir gerçeği açıklamak, bir konuda görüş ve düşünceler öne sürmek ya da bir tezi savunmak, desteklemek için yazılan yazılara da "makale" denir. Makaleler bir gerçeği kanıtlamak için yazılır. Makalelerde bilimsel verilerden yararlanılır.Akademik makaleler ise aynı zamanda bilimsel ve akademik boyuttaki dergilerde, bilimsel çalışmaların sonuçlarını içeren yazılar biçiminde de oluşturulabilmektedir. Bu konudaki dergiler ücretli ya da ücretsiz ve ulusal ya da uluslararası olabilmektedir. Hakemlik süreçleri kör hakemlik biçiminde birden fazla hakem ile yürütülebilmektedir</string>
+</resources>

@@ -3,7 +3,7 @@ package com.ahmet.gramer.utils
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import com.ahmet.gramer.MainActivity
+import com.ahmet.gramer.view.MainActivity
 import com.ahmet.gramer.view.FirstFragment
 
 class LoginPref {

@@ -59,18 +59,18 @@ class QuestionFragment : Fragment() {
         viewModel.questionLiveData.observe(viewLifecycleOwner, Observer {
             question = ArrayList(it)
 
-            binding.questionText.text=question[i].question
+            binding.questionText.text = question[i].question
 
             val random = Randomx.correctAnswer()
 
-            setData(i)
+            setData(random)
 
-            binding.questionNumber.text= "${i + 1}/${question.size}"
+            binding.questionNumber.text = "${i + 1}/${question.size}"
         })
         viewModel.getQuestionData(args.testUID)
     }
 
-    fun setData(random:Int) {
+    fun setData(random: Int) {
 
         when (random) {
             1 -> {
@@ -98,8 +98,6 @@ class QuestionFragment : Fragment() {
                 binding.opt1.text = question[i].option_one
             }
         }
-
-
     }
 
     fun changeQuestion() {
@@ -149,9 +147,10 @@ class QuestionFragment : Fragment() {
 
                 binding.questionText.setText(question[i].question)
 
-                val random =i
+                val random = Randomx.correctAnswer()
 
-                setData(i)
+
+                setData(random)
 
                 binding.questionNumber.text = "${i + 1}/${question.size}"
             }

@@ -14,6 +14,7 @@ import com.ahmet.gramer.adapter.GramerAdaptery
 import com.ahmet.gramer.databinding.FragmentFirstBinding
 import com.ahmet.gramer.databinding.FragmentGramerBinding
 import com.ahmet.gramer.utils.LoginPref
+import com.ahmet.gramer.utils.Type
 import com.ahmet.gramer.viewmodel.GramerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,10 +24,10 @@ class GramerFragment : Fragment() {
     private var _binding: FragmentGramerBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel:GramerViewModel by viewModels()
+    private val viewModel: GramerViewModel by viewModels()
     private val args by navArgs<GramerFragmentArgs>()
     lateinit var session: LoginPref
-    private lateinit var adaptery:GramerAdaptery
+    private lateinit var adaptery: GramerAdaptery
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,7 @@ class GramerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ):  View? {
+    ): View? {
         _binding = FragmentGramerBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -45,11 +46,47 @@ class GramerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getGramerData(args.kategoriID)
+        when (args.kategoriID) {
+            1 -> {
+                viewModel.getGramerData(args.kategoriID)
+                initRecycler()
+                observeLiveData()
 
-        initRecycler()
 
-        observeLiveData()
+            }
+            2 -> {
+                viewModel.getGramerData(args.kategoriID)
+                initRecycler()
+                observeLiveData()
+                binding.collapsingToolbar.background =requireActivity().getDrawable(R.drawable.cumlebck)
+
+            }
+        }
+
+        //viewModel.getGramerData(args.kategoriID)
+
+
+        //observeLiveData()
+
+
+    }
+
+    private fun initRecycler() {
+        binding.recyclerGramer.layoutManager = LinearLayoutManager(context)
+        adaptery = GramerAdaptery(arrayListOf())
+        binding.recyclerGramer.adapter = adaptery
+    }
+
+    private fun observeLiveData() {
+
+        viewModel.gramerLiveData.observe(viewLifecycleOwner, Observer { gramer ->
+            gramer?.let {
+                adaptery.updateData(gramer.test)
+            }
+        })
+    }
+
+    private fun pref() {
 
         session = LoginPref(requireContext())
 
@@ -61,22 +98,6 @@ class GramerFragment : Fragment() {
 
 
         binding.gramerNameText.text = "Merhaba $username"
-
-    }
-
-    private fun initRecycler() {
-        binding.recyclerGramer.layoutManager=LinearLayoutManager(context)
-        adaptery= GramerAdaptery(arrayListOf())
-        binding.recyclerGramer.adapter=adaptery
-    }
-
-    private fun observeLiveData() {
-
-        viewModel.gramerLiveData.observe(viewLifecycleOwner, Observer { gramer ->
-            gramer?.let {
-                adaptery.updateData(gramer.test)
-            }
-        })
     }
 
 

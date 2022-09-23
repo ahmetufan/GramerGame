@@ -15,6 +15,7 @@ import com.ahmet.gramer.databinding.FragmentGramerBinding
 import com.ahmet.gramer.databinding.FragmentHomeBinding
 import com.ahmet.gramer.models.Kategori
 import com.ahmet.gramer.utils.LoginPref
+import com.ahmet.gramer.utils.Type
 import com.ahmet.gramer.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,8 +27,6 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
     lateinit var session: LoginPref
-    private lateinit var kategoriModel: ArrayList<Kategori>
-    var kategori_id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,14 +45,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        kategoriModel = ArrayList<Kategori>()
 
         viewModel.getHomeData()
 
 
         viewModel.homeLiveData.observe(viewLifecycleOwner, Observer { livedata ->
 
-            kategoriModel = ArrayList(livedata.kategori)
 
             livedata.let {
 
@@ -61,26 +58,16 @@ class HomeFragment : Fragment() {
 
                     if (it.id == "1") {
                         binding.HomeGramerText.text = it.name
-                        kategori_id=it.id.toInt()
+
                     } else if (it.id == "2") {
                         binding.homeCumleText.text = it.name
-                        kategori_id=it.id.toInt()
                     }
                 }
 
             }
         })
 
-        session = LoginPref(requireContext())
-
-        session.checkLogin()
-
-        val user: HashMap<String, String> = session.getUserDetails()
-
-        val username = user.get(LoginPref.key_username)
-
-
-        binding.personNameText.text = "Merhaba $username"
+        pref()
 
         binding.profilImage.setOnClickListener {
 
@@ -101,16 +88,31 @@ class HomeFragment : Fragment() {
 
         binding.gramerImageview.setOnClickListener {
 
-            val action =
-                HomeFragmentDirections.actionHomeFragmentToGramerFragment(kategori_id)
+            val action =HomeFragmentDirections.actionHomeFragmentToGramerFragment(1)
             Navigation.findNavController(view).navigate(action)
+        }
+
+
+        binding.cumleImageview.setOnClickListener {
+            val action2 = HomeFragmentDirections.actionHomeFragmentToGramerFragment(2)
+            Navigation.findNavController(it).navigate(action2)
         }
 
 
     }
 
-    override fun onResume() {
-        super.onResume()
+
+    private fun pref() {
+
+        session = LoginPref(requireContext())
+
+        session.checkLogin()
+
+        val user: HashMap<String, String> = session.getUserDetails()
+
+        val username = user.get(LoginPref.key_username)
+
+        binding.personNameText.text = "Merhaba $username"
     }
 
 

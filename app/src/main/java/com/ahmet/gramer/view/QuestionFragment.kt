@@ -63,41 +63,21 @@ class QuestionFragment : Fragment() {
 
             val random = Randomx.correctAnswer()
 
-            setData(random)
+            setData()
 
             binding.questionNumber.text = "${i + 1}/${question.size}"
         })
         viewModel.getQuestionData(args.testUID)
     }
 
-    fun setData(random: Int) {
+    fun setData() {
 
-        when (random) {
-            1 -> {
-                binding.opt1.text = question[i].correct_ans
-                binding.opt2.text = question[i].option_two
-                binding.opt3.text = question[i].option_three
-                binding.opt4.text = question[i].option_four
-            }
-            2 -> {
-                binding.opt2.text = question[i].correct_ans
-                binding.opt1.text = question[i].option_one
-                binding.opt3.text = question[i].option_three
-                binding.opt4.text = question[i].option_four
-            }
-            3 -> {
-                binding.opt3.text = question[i].correct_ans
-                binding.opt2.text = question[i].option_two
-                binding.opt1.text = question[i].option_one
-                binding.opt4.text = question[i].option_four
-            }
-            4 -> {
-                binding.opt4.text = question[i].correct_ans
-                binding.opt2.text = question[i].option_two
-                binding.opt3.text = question[i].option_three
-                binding.opt1.text = question[i].option_one
-            }
-        }
+        binding.opt1.text = question[i].option_one
+        binding.opt2.text = question[i].option_two
+        binding.opt3.text = question[i].option_three
+        binding.opt4.text = question[i].option_four
+
+
     }
 
     fun changeQuestion() {
@@ -150,7 +130,7 @@ class QuestionFragment : Fragment() {
                 val random = Randomx.correctAnswer()
 
 
-                setData(random)
+                setData()
 
                 binding.questionNumber.text = "${i + 1}/${question.size}"
             }

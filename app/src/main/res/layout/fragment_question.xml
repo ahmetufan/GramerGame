@@ -73,8 +73,8 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
         app:cardUseCompatPadding="true"
         android:backgroundTint="@color/mainblue"
@@ -85,8 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text=""
-            android:textSize="23sp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="question"
+            android:textSize="21sp"
             android:textColor="@color/white"
             android:fontFamily="@font/alata"
             android:textStyle="bold"
@@ -97,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="1 / 10"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="205dp"
             android:layout_marginRight="15dp"
             android:textSize="15sp"
             android:textColor="@color/white"

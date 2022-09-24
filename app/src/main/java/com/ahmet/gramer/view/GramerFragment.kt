@@ -58,16 +58,15 @@ class GramerFragment : Fragment() {
                 viewModel.getGramerData(args.kategoriID)
                 initRecycler()
                 observeLiveData()
-                binding.collapsingToolbar.background =requireActivity().getDrawable(R.drawable.cumlebck)
+                binding.collapsingToolbar.background =requireActivity().getDrawable(R.drawable.cumle_bck)
+                binding.coordinatorLayout.background=requireActivity().getDrawable(R.drawable.ctr_bg2)
+                binding.nestedScrool.background=requireActivity().getDrawable(R.drawable.layout_bg2)
+                binding.imageGramer.background=requireActivity().getDrawable(R.drawable.workgramer3)
 
             }
         }
 
-        //viewModel.getGramerData(args.kategoriID)
-
-
-        //observeLiveData()
-
+        pref()
 
     }
 

@@ -12,7 +12,8 @@ data class TestModel( val test: List<Test>)
 data class Test(
     val id: String,
     val kategori_id: String,
-    val test_name: String
+    val test_name: String,
+    val test_turkce:String
 )
 
 
@@ -25,5 +26,6 @@ data class Question(
     val option_three: String,
     val option_two: String,
     val question: String,
-    val test_id: String
+    val test_id: String,
+    val url:String
 )

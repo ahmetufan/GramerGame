@@ -40,4 +40,9 @@ class HomeViewModel @Inject constructor(private val repository: ApiServiceReposi
                 })
         )
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
+    }
 }

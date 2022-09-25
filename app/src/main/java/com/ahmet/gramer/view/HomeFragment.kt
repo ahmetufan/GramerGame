@@ -11,11 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.ahmet.gramer.R
-import com.ahmet.gramer.databinding.FragmentGramerBinding
 import com.ahmet.gramer.databinding.FragmentHomeBinding
-import com.ahmet.gramer.models.Kategori
 import com.ahmet.gramer.utils.LoginPref
-import com.ahmet.gramer.utils.Type
 import com.ahmet.gramer.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,10 +54,13 @@ class HomeFragment : Fragment() {
                 livedata.kategori.forEach {
 
                     if (it.id == "1") {
-                        binding.HomeGramerText.text = it.name
+                        binding.HomeGramerQuizText.text = it.name
 
                     } else if (it.id == "2") {
                         binding.homeCumleText.text = it.name
+                    }
+                    else if (it.id == "5") {
+                        binding.homeGramerText.text= it.name
                     }
                 }
 
@@ -88,14 +88,20 @@ class HomeFragment : Fragment() {
 
         binding.gramerImageview.setOnClickListener {
 
-            val action =HomeFragmentDirections.actionHomeFragmentToGramerFragment(1)
-            Navigation.findNavController(view).navigate(action)
+            val action=HomeFragmentDirections.actionHomeFragmentToGramerListFragment()
+            Navigation.findNavController(it).navigate(action)
         }
 
 
         binding.cumleImageview.setOnClickListener {
             val action2 = HomeFragmentDirections.actionHomeFragmentToGramerFragment(2)
             Navigation.findNavController(it).navigate(action2)
+        }
+
+        binding.gramerDetailsImage.setOnClickListener {
+
+            val action3=HomeFragmentDirections.actionHomeFragmentToGramerDetailsListFragment()
+            Navigation.findNavController(it).navigate(action3)
         }
 
 

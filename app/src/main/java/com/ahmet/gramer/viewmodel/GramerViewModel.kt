@@ -39,4 +39,9 @@ class GramerViewModel @Inject constructor(private val repository: ApiServiceRepo
                 })
         )
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
+    }
 }

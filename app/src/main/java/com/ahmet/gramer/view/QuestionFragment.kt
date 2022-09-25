@@ -1,6 +1,8 @@
 package com.ahmet.gramer.view
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +14,13 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ahmet.gramer.R
-import com.ahmet.gramer.databinding.FragmentHomeBinding
 import com.ahmet.gramer.databinding.FragmentQuestionBinding
 import com.ahmet.gramer.models.Question
-import com.ahmet.gramer.utils.Randomx
 import com.ahmet.gramer.viewmodel.QuestionViewModel
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class QuestionFragment : Fragment() {
@@ -30,6 +33,8 @@ class QuestionFragment : Fragment() {
     lateinit var question: ArrayList<Question>
     var score = 0
     var i = 0
+
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +57,7 @@ class QuestionFragment : Fragment() {
 
         initViewModel()
 
+
     }
 
     private fun initViewModel() {
@@ -61,7 +67,6 @@ class QuestionFragment : Fragment() {
 
             binding.questionText.text = question[i].question
 
-            val random = Randomx.correctAnswer()
 
             setData()
 
@@ -76,6 +81,10 @@ class QuestionFragment : Fragment() {
         binding.opt2.text = question[i].option_two
         binding.opt3.text = question[i].option_three
         binding.opt4.text = question[i].option_four
+
+        Glide.with(requireContext())
+            .load(question[i].url)
+            .into(binding.urlImage)
 
 
     }
@@ -127,8 +136,6 @@ class QuestionFragment : Fragment() {
 
                 binding.questionText.setText(question[i].question)
 
-                val random = Randomx.correctAnswer()
-
 
                 setData()
 
@@ -144,11 +151,35 @@ class QuestionFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    private fun speak() {
+
+        binding.speakButton.setOnClickListener {
+
+            tts= TextToSpeech(requireContext(), TextToSpeech.OnInitListener {
+                if (it == TextToSpeech.SUCCESS) {
+
+                    val result = tts!!.setLanguage(Locale.ENGLISH)
+                    tts!!.setSpeechRate(0.7f)
+                    tts!!.speak(binding.questionText.text.toString(), TextToSpeech.QUEUE_FLUSH, null)
+
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "Belirtilen dil desteklenmiyor")
+                    }
+
+                } else {
+                    Log.e("TTS", "İnitilation Başarısız")
+                }
+            })
+        }
+
+    }
+
     override fun onResume() {
         super.onResume()
 
         changeQuestion()
         control()
+        speak()
     }
 
     fun control() {
@@ -310,6 +341,14 @@ class QuestionFragment : Fragment() {
             binding.opt3.isClickable = false
             binding.opt4.isClickable = false
         }
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 
 

@@ -23,6 +23,7 @@ class GramerAdaptery(private val model:ArrayList<Test>):RecyclerView.Adapter<Gra
         holder.itemView.setOnClickListener {
             val action=GramerFragmentDirections.actionGramerFragmentToQuestionFragment(model[position].id.toInt())
             Navigation.findNavController(it).navigate(action)
+
         }
 
     }

@@ -38,4 +38,9 @@ class QuestionViewModel @Inject constructor(private val repository: ApiServiceRe
                 }
             }))
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
+    }
 }

@@ -21,9 +21,14 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/activity_splash.xml" value="0.19519927536231885" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_first.xml" value="0.19519927536231885" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_gramer.xml" value="0.19519927536231885" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_gramer_details.xml" value="0.14719945355191258" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_gramer_details_list.xml" value="0.18" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_gramer_list.xml" value="0.19519927536231885" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_gramer_quiz_list.xml" value="0.14719945355191258" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_home.xml" value="0.14583333333333334" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_question.xml" value="0.19519927536231885" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_question.xml" value="0.21" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/fragment_result.xml" value="0.25" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/row_gramer_details.xml" value="0.14719945355191258" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/Gramer/app/src/main/res/layout/row_list.xml" value="0.19519927536231885" />
       </map>
     </option>

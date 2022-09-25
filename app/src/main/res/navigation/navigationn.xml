@@ -28,6 +28,12 @@
         <action
             android:id="@+id/action_homeFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gramerListFragment"
+            app:destination="@id/gramerListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gramerDetailsListFragment"
+            app:destination="@id/gramerDetailsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/gramerFragment"
@@ -64,5 +70,32 @@
         <action
             android:id="@+id/action_resultFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gramerListFragment"
+        android:name="com.ahmet.gramer.view.GramerQuizListFragment"
+        android:label="fragment_gramer_list"
+        tools:layout="@layout/fragment_gramer_quiz_list" >
+        <action
+            android:id="@+id/action_gramerListFragment_to_gramerFragment"
+            app:destination="@id/gramerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gramerDetailsListFragment"
+        android:name="com.ahmet.gramer.view.GramerDetailsListFragment"
+        android:label="fragment_gramer_details_list"
+        tools:layout="@layout/fragment_gramer_details_list" >
+        <action
+            android:id="@+id/action_gramerDetailsListFragment_to_gramerDetailsFragment"
+            app:destination="@id/gramerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gramerDetailsFragment"
+        android:name="com.ahmet.gramer.view.GramerDetailsFragment"
+        android:label="fragment_gramer_details"
+        tools:layout="@layout/fragment_gramer_details" >
+        <argument
+            android:name="kategoriID"
+            app:argType="integer" />
     </fragment>
 </navigation>

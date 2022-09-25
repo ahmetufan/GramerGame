@@ -11,10 +11,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmet.gramer.R
 import com.ahmet.gramer.adapter.GramerAdaptery
-import com.ahmet.gramer.databinding.FragmentFirstBinding
 import com.ahmet.gramer.databinding.FragmentGramerBinding
 import com.ahmet.gramer.utils.LoginPref
-import com.ahmet.gramer.utils.Type
 import com.ahmet.gramer.viewmodel.GramerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,6 +60,18 @@ class GramerFragment : Fragment() {
                 binding.coordinatorLayout.background=requireActivity().getDrawable(R.drawable.ctr_bg2)
                 binding.nestedScrool.background=requireActivity().getDrawable(R.drawable.layout_bg2)
                 binding.imageGramer.background=requireActivity().getDrawable(R.drawable.workgramer3)
+
+            }
+            3 -> {
+                viewModel.getGramerData(args.kategoriID)
+                initRecycler()
+                observeLiveData()
+
+            }
+            4 -> {
+                viewModel.getGramerData(args.kategoriID)
+                initRecycler()
+                observeLiveData()
 
             }
         }

@@ -19,5 +19,6 @@
 •	[View Binding](https://developer.android.com/topic/libraries/view-binding) - View binding is a feature that allows you to more easily write code that interacts with views.<br/>
 •	[Retrofit](https://square.github.io/retrofit/) - Used to simplify networking<br/>
 •	[RxJava](https://www.geeksforgeeks.org/rxjava-for-android/) - RxJava simplifies complex threading operations, maintaining proper synchronization as you switch seamlessly from thread to thread.<br/>
+•	[Glide](https://github.com/bumptech/glide) - An image loading and caching library for Android focused on smooth scrolling<br/>
 •	[RecyclerView](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView) - Used to display the dashboard<br/>
 •	[Material](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md)-Components - Material design components like ripple animation, cardView.<br/>

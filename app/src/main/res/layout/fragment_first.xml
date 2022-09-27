@@ -69,7 +69,7 @@
                     android:inputType="text"
                     android:textAlignment="center"
                     android:textColor="@color/mainblue"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/blackmain" />
 
                 <Button
                     android:id="@+id/button"

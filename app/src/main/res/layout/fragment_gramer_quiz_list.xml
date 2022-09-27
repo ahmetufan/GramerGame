@@ -6,90 +6,112 @@
     android:layout_height="match_parent"
     tools:context=".view.GramerQuizListFragment">
 
-   <Button
-       android:id="@+id/btnlist"
-       android:layout_width="200dp"
-       android:layout_height="100dp"
-       android:layout_gravity="center"
-       android:layout_marginTop="50dp"
-       android:text="Fiiller"
-       app:layout_constraintEnd_toEndOf="parent"
+
+   <ImageView
+       android:id="@+id/profilImageList"
+       android:layout_width="50dp"
+       android:layout_height="50dp"
+       android:layout_marginStart="25dp"
+       android:layout_marginTop="10dp"
+       android:src="@drawable/person"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
+
+   <TextView
+       android:id="@+id/personNameTextList"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="5dp"
+       android:text="Merhaba Ahmet"
+       android:textColor="#3C88CA"
+       android:textSize="15sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="@+id/profilImageList"
+       app:layout_constraintStart_toEndOf="@+id/profilImageList"
+       app:layout_constraintTop_toTopOf="@+id/profilImageList" />
+
+   <TextView
+       android:id="@+id/detailtext"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:fontFamily="@font/alata"
+       android:text="Asla Pes Etme"
+       android:textColor="#C81778"
+       android:textSize="35sp"
+       app:layout_constraintStart_toStartOf="@+id/profilImageList"
+       app:layout_constraintTop_toBottomOf="@+id/profilImageList" />
+
+
+   <ImageView
+       android:id="@+id/imagedetailtext"
+       android:layout_width="55dp"
+       android:layout_height="50dp"
+       android:src="@drawable/pes"
+       app:layout_constraintBottom_toBottomOf="@+id/detailtext"
+       app:layout_constraintStart_toEndOf="@+id/detailtext" />
+
+   <TextView
+       android:id="@+id/textView5"
+       android:layout_width="300dp"
+       android:layout_height="wrap_content"
+       android:text="Bir gün, pes etmediğin için kendine teşekkür edeceksin! "
+       android:textSize="15sp"
+       android:layout_marginTop="10dp"
+       app:layout_constraintStart_toStartOf="@+id/detailtext"
+       app:layout_constraintTop_toBottomOf="@+id/detailtext" />
+
+   <ImageView
+       android:id="@+id/imageFiil"
+       android:layout_width="350dp"
+       android:layout_height="165dp"
+       android:layout_gravity="center"
+       android:background="@drawable/fiilbck"
+       android:text="Fiiller"
+       android:layout_marginTop="17dp"
+       app:layout_constraintStart_toStartOf="@+id/textView5"
+       app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
    <ImageView
        android:id="@+id/imageHayvanlar"
-       android:layout_width="261dp"
-       android:layout_height="93dp"
-       android:layout_marginTop="50dp"
-       android:src="@drawable/kuralbck"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/btnlist" />
+       android:layout_width="350dp"
+       android:layout_height="200dp"
+       android:layout_marginTop="20dp"
+       android:src="@drawable/karisikbck2"
+       app:layout_constraintEnd_toEndOf="@+id/imageFiil"
+       app:layout_constraintStart_toStartOf="@+id/imageFiil"
+       app:layout_constraintTop_toBottomOf="@+id/imageFiil" />
 
-
-   <ImageView
-       android:id="@+id/imageMeslekler"
-       android:layout_width="271dp"
-       android:layout_height="101dp"
-       android:layout_marginTop="180dp"
-       android:src="@drawable/kuralbck"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.521"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/btnlist" />
 
    <TextView
-       android:id="@+id/hayvanlarTextName"
+       android:id="@+id/karisiktextname"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginStart="24dp"
+       android:layout_marginLeft="21dp"
+       android:layout_marginTop="100dp"
        android:fontFamily="@font/alata"
-       android:text=""
+       android:text="Karışık Quiz"
        android:textColor="@color/white"
-       android:textSize="18sp"
+       android:textSize="26sp"
        android:textStyle="bold"
        app:layout_constraintBottom_toBottomOf="@+id/imageHayvanlar"
        app:layout_constraintStart_toStartOf="@+id/imageHayvanlar"
        app:layout_constraintTop_toTopOf="@+id/imageHayvanlar" />
 
    <TextView
-       android:id="@+id/mesleklerTextName"
+       android:id="@+id/fiillertextname"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginStart="60dp"
        android:fontFamily="@font/alata"
-       android:text=""
+       android:text="Fiiller Quiz"
        android:textColor="@color/white"
-       android:textSize="18sp"
+       android:textSize="26sp"
        android:textStyle="bold"
-       app:layout_constraintBottom_toBottomOf="@+id/imageMeslekler"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="@+id/imageMeslekler"
-       app:layout_constraintVertical_bias="0.694" />
-
-   <TextView
-       android:id="@+id/e1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="what is your name "
-       android:layout_marginTop="20dp"
-       android:textColor="@color/black"
-       android:textSize="23sp"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/imageMeslekler" />
-
-   <Button
-       android:id="@+id/b1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="oku"
-       android:layout_marginTop="20dp"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/e1" />
+       android:layout_marginLeft="21dp"
+       android:layout_marginTop="100dp"
+       app:layout_constraintBottom_toBottomOf="@+id/imageFiil"
+       app:layout_constraintStart_toStartOf="@+id/imageFiil"
+       app:layout_constraintTop_toTopOf="@+id/imageFiil" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

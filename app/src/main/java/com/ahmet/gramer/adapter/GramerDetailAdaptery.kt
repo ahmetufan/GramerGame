@@ -10,6 +10,7 @@ import com.ahmet.gramer.databinding.RowGramerDetailsBinding
 import com.ahmet.gramer.databinding.RowListBinding
 import com.ahmet.gramer.models.Test
 import com.ahmet.gramer.view.GramerFragmentDirections
+import com.bumptech.glide.Glide
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -29,6 +30,10 @@ class GramerDetailAdaptery(private val model:ArrayList<Test>): RecyclerView.Adap
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.engText.text=model[position].test_name
         holder.binding.trText.text=model[position].test_turkce
+
+        Glide.with(holder.itemView.context)
+            .load(model[position].img_url)
+            .into(holder.binding.imageDetails)
 
         holder.binding.speakButtonDetails.setOnClickListener {
 

@@ -1,8 +1,6 @@
 package com.ahmet.gramer.view
 
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.ahmet.gramer.databinding.FragmentGramerQuizListBinding
+import com.ahmet.gramer.utils.LoginPref
 import com.ahmet.gramer.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -22,7 +21,7 @@ class GramerQuizListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: HomeViewModel by viewModels()
-    private var tts: TextToSpeech? = null
+    lateinit var session: LoginPref
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,15 +51,17 @@ class GramerQuizListFragment : Fragment() {
                 gramerList.kategori.forEach {
 
                     if (it.id == "3") {
-                        binding.hayvanlarTextName.text = it.name
+                        binding.karisiktextname.text = it.name
                     } else if (it.id == "4") {
-                        binding.mesleklerTextName.text = it.name
+                        binding.fiillertextname.text = it.name
                     }
                 }
             }
         })
 
-        binding.btnlist.setOnClickListener {
+        pref()
+
+        binding.imageFiil.setOnClickListener {
             val action = GramerQuizListFragmentDirections.actionGramerListFragmentToGramerFragment(1)
             Navigation.findNavController(it).navigate(action)
         }
@@ -70,41 +71,20 @@ class GramerQuizListFragment : Fragment() {
             Navigation.findNavController(it).navigate(action2)
         }
 
-        binding.imageMeslekler.setOnClickListener {
-            val action3 = GramerQuizListFragmentDirections.actionGramerListFragmentToGramerFragment(4)
-            Navigation.findNavController(it).navigate(action3)
-        }
-
-
-        binding.b1.setOnClickListener {
-
-            tts = TextToSpeech(requireActivity(), TextToSpeech.OnInitListener {
-                if (it == TextToSpeech.SUCCESS) {
-
-                    val result = tts!!.setLanguage(Locale.ENGLISH)
-                    tts!!.setSpeechRate(0.7f)
-                    tts!!.speak(binding.e1.text.toString(), TextToSpeech.QUEUE_FLUSH, null)
-
-                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        Log.e("TTS", "Belirtilen dil desteklenmiyor")
-                    }
-
-                } else {
-                    Log.e("TTS", "İnitilation Başarısız")
-
-                }
-            })
-        }
-
-
     }
 
-    override fun onDestroy() {
-        if (tts != null) {
-            tts!!.stop()
-            tts!!.shutdown()
-        }
-        super.onDestroy()
+    private fun pref() {
+
+        session = LoginPref(requireContext())
+
+        session.checkLogin()
+
+        val user: HashMap<String, String> = session.getUserDetails()
+
+        val username = user.get(LoginPref.key_username)
+
+        binding.personNameTextList.text = "Merhaba $username"
     }
+
 
 }

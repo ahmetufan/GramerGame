@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".view.QuestionFragment">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +72,7 @@
                 android:layout_marginBottom="2dp"
                 android:fontFamily="@font/alata"
                 android:text="Score: 0"
-                android:textColor="@color/black"
+                android:textColor="@color/blackmain"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -93,10 +95,9 @@
             android:id="@+id/speakButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_speak"
-            app:borderWidth="1dp"
-            android:elevation="10dp"
+            android:backgroundTint="@color/mainblue"
+            android:src="@drawable/ic_speak2"
+            app:borderWidth="0dp"
             app:fabSize="normal"
             android:layout_marginTop="3dp"
             android:layout_gravity="center"/>
@@ -119,13 +120,15 @@
 
             <ImageView
                 android:id="@+id/urlImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/questionNumber" />
 
             <TextView
                 android:id="@+id/questionText"
@@ -151,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/alata"
+                android:gravity="end"
                 android:text="1 / 10"
                 android:textColor="@color/white"
                 android:textSize="15sp"

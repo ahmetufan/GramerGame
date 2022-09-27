@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ahmet.gramer.R
-import com.ahmet.gramer.databinding.FragmentQuestionBinding
 import com.ahmet.gramer.databinding.FragmentResultBinding
 import com.ahmet.gramer.utils.LoginPref
 import dagger.hilt.android.AndroidEntryPoint

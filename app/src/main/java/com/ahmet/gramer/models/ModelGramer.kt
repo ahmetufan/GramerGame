@@ -13,7 +13,8 @@ data class Test(
     val id: String,
     val kategori_id: String,
     val test_name: String,
-    val test_turkce:String
+    val test_turkce:String,
+    val img_url:String
 )
 
 

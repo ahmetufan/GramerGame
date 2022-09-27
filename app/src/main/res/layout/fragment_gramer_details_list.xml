@@ -11,15 +11,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/profilImageList2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/person" />
+
+                <TextView
+                    android:id="@+id/personNameTextList2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Merhaba Ahmet"
+                    android:textColor="#3C88CA"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/vucudcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -35,10 +64,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Vücudumuz"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -48,6 +78,7 @@
                 android:id="@+id/gidacard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -63,10 +94,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Gıda"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -76,6 +108,7 @@
                 android:id="@+id/hayvancard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -91,10 +124,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Hayvanlar"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -104,6 +138,7 @@
                 android:id="@+id/ailecard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -119,10 +154,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Aile"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -132,6 +168,7 @@
                 android:id="@+id/mevsimcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -147,10 +184,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Mevsimler - Günler"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -160,6 +198,7 @@
                 android:id="@+id/sayicard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -168,17 +207,18 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/sayilar" />
+                    android:src="@drawable/sayi" />
 
                 <TextView
                     android:id="@+id/sayilar_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Sayılar "
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -188,6 +228,7 @@
                 android:id="@+id/esyacard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -203,10 +244,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Eşyalar"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -216,6 +258,7 @@
                 android:id="@+id/renkcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -231,10 +274,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Renkler"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -244,6 +288,7 @@
                 android:id="@+id/sporcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -259,10 +304,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Spor"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -272,6 +318,7 @@
                 android:id="@+id/duygucard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -287,10 +334,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Duygular"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -300,6 +348,7 @@
                 android:id="@+id/meslekcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -315,10 +364,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Meslekler"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -328,6 +378,7 @@
                 android:id="@+id/ulkecard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -343,10 +394,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Ülkeler"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -356,6 +408,7 @@
                 android:id="@+id/giyimcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -371,10 +424,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Giyim"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -384,6 +438,7 @@
                 android:id="@+id/bitkicard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -399,10 +454,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Meyveler"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
@@ -412,6 +468,7 @@
                 android:id="@+id/saglikcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:outlineSpotShadowColor="@color/mainblue"
                 app:cardCornerRadius="15dp"
                 app:cardUseCompatPadding="true">
 
@@ -427,19 +484,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/alata"
                     android:text="Sağlık"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/mainblue"
+                    android:textSize="21sp"
                     android:textStyle="bold" />
 
 
             </androidx.cardview.widget.CardView>
 
 
-
         </LinearLayout>
-
 
 
     </androidx.core.widget.NestedScrollView>

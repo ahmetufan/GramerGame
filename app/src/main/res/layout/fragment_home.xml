@@ -19,9 +19,9 @@
                 android:id="@+id/profilImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
                 android:src="@drawable/person"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,86 +29,83 @@
                 android:id="@+id/personNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
                 android:text="Merhaba Ahmet"
                 android:textColor="#3C88CA"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profilImage"
                 app:layout_constraintStart_toEndOf="@+id/profilImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/profilImage" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
                 android:fontFamily="@font/alata"
                 android:text="Haydi Başlayalım"
                 android:textColor="#C81778"
                 android:textSize="35sp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/profilImage"
                 app:layout_constraintTop_toBottomOf="@+id/profilImage" />
 
             <ImageView
+                android:id="@+id/imageView9"
                 android:layout_width="64dp"
                 android:layout_height="58dp"
-                android:layout_marginStart="4dp"
                 android:src="@drawable/work"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="@+id/textView" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView" />
 
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Bir dil öğrenmek, dünyaya açılan bir pencere daha demektir."
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <ImageView
                 android:id="@+id/cumleImageview"
                 android:layout_width="350dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="34dp"
-                android:layout_marginTop="352dp"
-                android:layout_marginEnd="34dp"
                 android:background="@drawable/cumlebck"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/gramerImageview"
+                app:layout_constraintTop_toBottomOf="@+id/gramerImageview" />
 
             <ImageView
                 android:id="@+id/gramerImageview"
                 android:layout_width="350dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="34dp"
-                android:layout_marginTop="136dp"
-                android:layout_marginEnd="34dp"
-                android:background="@drawable/gramerbck2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:background="@drawable/quizbck"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/gramerDetailsImage"
+                app:layout_constraintTop_toBottomOf="@+id/gramerDetailsImage" />
 
             <ImageView
                 android:id="@+id/gramerDetailsImage"
                 android:layout_width="350dp"
-                android:layout_height="240dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/kuralbck"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cumleImageview" />
+                android:layout_height="200dp"
+                android:src="@drawable/gramerback"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
                 android:id="@+id/HomeGramerQuizText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="140dp"
                 android:fontFamily="@font/alata"
-                android:text=""
+                android:text="Gramer Quiz"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="100dp"
+                app:layout_constraintBottom_toBottomOf="@+id/gramerImageview"
                 app:layout_constraintStart_toStartOf="@+id/gramerImageview"
                 app:layout_constraintTop_toTopOf="@+id/gramerImageview" />
 
@@ -116,13 +113,14 @@
                 android:id="@+id/homeCumleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="144dp"
                 android:fontFamily="@font/alata"
-                android:text=""
+                android:text="Cümle Kur"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="100dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cumleImageview"
                 app:layout_constraintStart_toStartOf="@+id/cumleImageview"
                 app:layout_constraintTop_toTopOf="@+id/cumleImageview" />
 
@@ -130,13 +128,14 @@
                 android:id="@+id/homeGramerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="120dp"
                 android:fontFamily="@font/alata"
-                android:text="Kural Öğren"
+                android:text="Gramer"
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="100dp"
+                app:layout_constraintBottom_toBottomOf="@+id/gramerDetailsImage"
                 app:layout_constraintStart_toStartOf="@+id/gramerDetailsImage"
                 app:layout_constraintTop_toTopOf="@+id/gramerDetailsImage" />
 

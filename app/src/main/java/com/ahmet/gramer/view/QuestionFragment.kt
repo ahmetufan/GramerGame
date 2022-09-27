@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.ahmet.gramer.R
 import com.ahmet.gramer.databinding.FragmentQuestionBinding
 import com.ahmet.gramer.models.Question
+import com.ahmet.gramer.utils.LoginPref
 import com.ahmet.gramer.viewmodel.QuestionViewModel
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +34,7 @@ class QuestionFragment : Fragment() {
     lateinit var question: ArrayList<Question>
     var score = 0
     var i = 0
+    lateinit var session: LoginPref
 
     private var tts: TextToSpeech? = null
 
@@ -56,6 +58,8 @@ class QuestionFragment : Fragment() {
         question = ArrayList<Question>()
 
         initViewModel()
+
+        pref()
 
 
     }
@@ -341,6 +345,19 @@ class QuestionFragment : Fragment() {
             binding.opt3.isClickable = false
             binding.opt4.isClickable = false
         }
+    }
+
+    private fun pref() {
+
+        session = LoginPref(requireContext())
+
+        session.checkLogin()
+
+        val user: HashMap<String, String> = session.getUserDetails()
+
+        val username = user.get(LoginPref.key_username)
+
+        binding.persontextquestion.text = "Merhaba $username"
     }
 
     override fun onDestroy() {

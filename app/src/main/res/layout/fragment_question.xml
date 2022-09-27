@@ -32,12 +32,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/persontextquestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="28dp"
                 android:layout_marginRight="15dp"
+                android:layout_marginBottom="28dp"
                 android:text="Merhaba Ahmet"
                 android:textColor="#3C88CA"
                 android:textSize="15sp"

@@ -17,6 +17,8 @@ English learning app. MVVM architecture, Android Jetpack Libraries and 3rd party
 •	[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Used to make data be Lifecycle aware, and helps persist data through the activity Lifecycle<br/>
 •	[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - UI related data holder, lifecycle aware.<br/>
 • [Dependency injection-Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Hilt is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.<br/> 
+•	[WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNhSQlv-zTx0zCdS0K0z9ikmxyky5JaYMQm2rKKvSR3jH0BWXfGpdthoCjDMQAvD_BwE&gclsrc=aw.ds) - Work is persistent when it remains scheduled through app restarts and system reboots.<br/>
+•	[Notifications](https://developer.android.com/develop/ui/views/notifications) - A notification is a message that Android displays outside your app's UI to provide the user with reminders, communication from other people, or other timely information from your app.<br/>
 •	[Navigation](https://developer.android.com/guide/navigation) Component - handle everything needed for in-app navigation.<br/>
 •	[View Binding](https://developer.android.com/topic/libraries/view-binding) - View binding is a feature that allows you to more easily write code that interacts with views.<br/>
 •	[Retrofit](https://square.github.io/retrofit/) - Used to simplify networking<br/>

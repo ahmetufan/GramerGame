@@ -15,15 +15,36 @@ android {
         minSdk 23
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "1.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+            buildConfigField "String", "HOME_FRAGMENT_BANNER", '"ca-app-pub-8092517348974542/8684467310"'
+            buildConfigField "String", "GRAMER_DETAILLIST_BANNER", '"ca-app-pub-8092517348974542/6365425731"'
+            buildConfigField "String", "GRAMER_DETAILSFRAGMENT_INTERSTITIAL", '"ca-app-pub-8092517348974542/1684509347"'
+            buildConfigField "String", "GRAMER_QUIZLISTFRAGMENT_BANNER", '"ca-app-pub-8092517348974542/3751435334"'
+            buildConfigField "String", "GRAMER_FRAGMENT_BANNER", '"ca-app-pub-8092517348974542/7423356534"'
+            buildConfigField "String", "RESULT_FRAGMENT_INTERSTITIAL", '"ca-app-pub-8092517348974542/5049039287"'
+
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "HOME_FRAGMENT_BANNER", '"ca-app-pub-3940256099942544/6300978111"'
+            buildConfigField "String", "GRAMER_DETAILLIST_BANNER", '"ca-app-pub-3940256099942544/6300978111"'
+            buildConfigField "String", "GRAMER_DETAILSFRAGMENT_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "GRAMER_QUIZLISTFRAGMENT_BANNER", '"ca-app-pub-3940256099942544/6300978111"'
+            buildConfigField "String", "GRAMER_FRAGMENT_BANNER", '"ca-app-pub-3940256099942544/6300978111"'
+            buildConfigField "String", "RESULT_FRAGMENT_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
+
+
         }
     }
     compileOptions {
@@ -62,7 +83,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
-    implementation"androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
 
     implementation("androidx.room:room-rxjava3:$roomVersion")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
@@ -81,15 +102,19 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.fragment:fragment-ktx:1.5.2"
     //Material Design
-    implementation'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.6.1'
     //3d Recyclerview
-    implementation'com.github.sparrow007:carouselrecyclerview:1.2.4'
+    implementation 'com.github.sparrow007:carouselrecyclerview:1.2.4'
     //Preferences
     implementation "androidx.preference:preference:$preferencesVersion"
     //SwipeRefresh
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    //Admob
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
 
-    
+    implementation("com.google.android.play:review-ktx:2.0.1")
+
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'

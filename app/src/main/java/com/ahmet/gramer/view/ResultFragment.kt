@@ -1,15 +1,24 @@
 package com.ahmet.gramer.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.ahmet.gramer.BuildConfig
 import com.ahmet.gramer.R
 import com.ahmet.gramer.databinding.FragmentResultBinding
 import com.ahmet.gramer.utils.LoginPref
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,9 +30,29 @@ class ResultFragment : Fragment() {
     private val args: ResultFragmentArgs by navArgs()
     lateinit var session: LoginPref
 
+    private var mInterstitialAd: InterstitialAd? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        interstitial()
+
+    }
+
+    private fun interstitial() {
+
+        // INTERSTITIAL Ads
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(), BuildConfig.RESULT_FRAGMENT_INTERSTITIAL, adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
     }
 
     override fun onCreateView(
@@ -41,11 +70,16 @@ class ResultFragment : Fragment() {
         binding.scoreText.text=args.score.toString()
 
         binding.replayButton.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_homeFragment)
+            activity?.onBackPressed()
         }
 
         binding.quitButton.setOnClickListener {
-            activity?.finish()
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.")
+            }
+            findNavController().navigate(R.id.action_resultFragment_to_homeFragment)
         }
 
         session = LoginPref(requireContext())

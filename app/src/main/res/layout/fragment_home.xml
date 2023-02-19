@@ -139,6 +139,19 @@
                 app:layout_constraintStart_toStartOf="@+id/gramerDetailsImage"
                 app:layout_constraintTop_toTopOf="@+id/gramerDetailsImage" />
 
+            <RelativeLayout
+                android:id="@+id/rlAdsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cumleImageview">
+
+            </RelativeLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

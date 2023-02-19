@@ -9,11 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ahmet.gramer.BuildConfig
 import com.ahmet.gramer.R
 import com.ahmet.gramer.adapter.GramerAdaptery
 import com.ahmet.gramer.databinding.FragmentGramerBinding
 import com.ahmet.gramer.utils.LoginPref
 import com.ahmet.gramer.viewmodel.GramerViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +43,18 @@ class GramerFragment : Fragment() {
     ): View? {
         _binding = FragmentGramerBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        // AdView Initialize
+        MobileAds.initialize(requireContext()) {}
+
+        val adView = AdView(requireContext())
+        adView.setAdSize(AdSize.LARGE_BANNER)
+        adView.adUnitId = BuildConfig.GRAMER_FRAGMENT_BANNER
+        binding.rlAdsContainer.addView(adView)
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
         return view
     }
 

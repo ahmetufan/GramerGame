@@ -85,13 +85,26 @@
         android:id="@+id/quitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="26dp"
-        android:backgroundTint="#E81818"
+        android:backgroundTint="#56E818"
         android:drawableEnd="@drawable/ic_out"
-        android:text="Çıkış"
+        android:text="ANA MENÜ"
+        app:layout_constraintEnd_toEndOf="@+id/replayButton"
         app:layout_constraintStart_toStartOf="@+id/replayButton"
         app:layout_constraintTop_toBottomOf="@+id/replayButton" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlPauseAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

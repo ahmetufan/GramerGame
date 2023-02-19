@@ -357,7 +357,7 @@ class QuestionFragment : Fragment() {
 
         val username = user.get(LoginPref.key_username)
 
-        binding.persontextquestion.text = "Merhaba $username"
+//        binding.persontextquestion.text = "Merhaba $username"
     }
 
     override fun onDestroy() {

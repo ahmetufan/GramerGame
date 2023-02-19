@@ -1,6 +1,7 @@
 package com.ahmet.gramer.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ahmet.gramer.BuildConfig
 import com.ahmet.gramer.adapter.GramerDetailAdaptery
 import com.ahmet.gramer.databinding.FragmentGramerDetailsBinding
 import com.ahmet.gramer.viewmodel.GramerViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,10 +32,17 @@ class GramerDetailsFragment : Fragment() {
     private val args by navArgs<GramerDetailsFragmentArgs>()
     private val viewModel:GramerViewModel by viewModels()
 
+    private var mInterstitialAd: InterstitialAd? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +56,9 @@ class GramerDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
 
 
         when(args.kategoriID) {
@@ -138,6 +156,7 @@ class GramerDetailsFragment : Fragment() {
         adaptery= GramerDetailAdaptery(arrayListOf())
         binding.recyclerView.adapter=adaptery
     }
+
 
 
 }

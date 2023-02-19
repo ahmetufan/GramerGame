@@ -1,6 +1,7 @@
 package com.ahmet.gramer.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.ahmet.gramer.BuildConfig
 import com.ahmet.gramer.R
 import com.ahmet.gramer.databinding.FragmentHomeBinding
 import com.ahmet.gramer.utils.LoginPref
 import com.ahmet.gramer.viewmodel.HomeViewModel
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,10 +30,31 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     lateinit var session: LoginPref
 
+    private var mInterstitialAd: InterstitialAd? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        interstitial()
     }
+
+    private fun interstitial() {
+
+        // INTERSTITIAL Ads
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(), BuildConfig.GRAMER_DETAILSFRAGMENT_INTERSTITIAL, adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +62,18 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        // AdView Initialize
+        MobileAds.initialize(requireContext()) {}
+
+        val adView = AdView(requireContext())
+        adView.setAdSize(AdSize.LARGE_BANNER)
+        adView.adUnitId = BuildConfig.HOME_FRAGMENT_BANNER
+        binding.rlAdsContainer.addView(adView)
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
         return view
     }
 
@@ -96,6 +134,13 @@ class HomeFragment : Fragment() {
         binding.cumleImageview.setOnClickListener {
             val action2 = HomeFragmentDirections.actionHomeFragmentToGramerFragment(2)
             Navigation.findNavController(it).navigate(action2)
+
+
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.")
+            }
         }
 
         binding.gramerDetailsImage.setOnClickListener {

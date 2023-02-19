@@ -113,5 +113,17 @@
        app:layout_constraintStart_toStartOf="@+id/imageFiil"
        app:layout_constraintTop_toTopOf="@+id/imageFiil" />
 
+   <RelativeLayout
+       android:id="@+id/rlAdsContainer"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center_horizontal"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/imageHayvanlar">
+
+   </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

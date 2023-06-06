@@ -28,4 +28,4 @@ English learning app. MVVM architecture, Android Jetpack Libraries and 3rd party
 •	[Material](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md)-Components - Material design components like ripple animation, cardView.<br/>
 
 # License  :page_with_curl:<br/>
-Gramer Game is available under the MIT  license. See the [LICENSE](https://github.com/ahmetufan/JetpackComposeMovie/blob/main/LICENSE) file for more info.
+Gramer Game is available under the MIT  license. See the [LICENSE](https://github.com/ahmetufan/GramerGame/blob/main/LICENSE) file for more info.
